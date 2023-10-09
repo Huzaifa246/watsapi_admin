@@ -1,0 +1,139 @@
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -15%; /* Initially hidden */
+  height: 100vh;
+  width: 15%;
+  background-color: #19212e;
+  transition: 0.4s; /*  Use CSS transition for sliding effect */
+  z-index: 10;
+}
+
+#sidebar.active {
+  left: 0;
+}
+.sidebar-icon {
+  background: #5c61f2;
+  padding: 6px;
+  margin-right: 10px;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 5px 1px #5c61f2;
+}
+.sidebar-icon:hover {
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.75);
+}
+.sidebar-text {
+  color: #fff;
+  letter-spacing: 0.7px;
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.active-link {
+  background: #5c61f2;
+  border-radius: 5px;
+}
+.active-link .sidebar-icon {
+  -webkit-box-shadow: 0px 0px 5px 1px #989bf2;
+}
+.active-link:hover{
+  color: white;
+}
+.active-link .sidebar-text:hover {
+  color: white !important;
+}
+
+/* Add styles for inactive links */
+.main-sidebar .sidebar-text {
+  color: #fff;
+}
+
+.main-sidebar .sidebar-text:hover {
+  color: #5c61f2;
+}
+
+.main-sidebar {
+  display: flex;
+  align-items: end;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 9999;
+}
+.sidebar-toggle.active {
+  left: 12%;
+}
+.sidebar-togglestyle {
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  background-color: hsl(0deg 0.94% 44.62%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  transition: 0.4s;
+}
+.grid-icon-style {
+  color: #fff;
+}
+.grid-icon-style:hover {
+  color: #5c61f2;
+}
+
+.its-heading-logo {
+  display: flex;
+  align-items: center;
+  /* padding: 15px; */
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 999;
+}
+
+.its-logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  z-index: 999;
+}
+
+.its-heading {
+  color: #fff;
+  font-size: 1.5rem;
+  z-index: 999;
+}
+/* Add this to your existing CSS file */
+.submenu {
+  display: none;
+  padding-left: 20px;
+  transition: max-height 0.3s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.submenu-open {
+  display: block;
+  max-height: 500px; /* Adjust this value as needed */
+  transition: max-height 0.3s ease-in-out;
+}
+
+.submenu-item {
+  padding-left: 10px;
+  color: white;
+}
+
+.submenu-icon {
+  font-size: 1.3rem;
+}
+
+@media (min-width: 950px) and (max-width: 1250px) {
+  .sidebar-toggle.active {
+    left: 11%;
+  }
+}
