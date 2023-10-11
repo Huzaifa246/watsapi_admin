@@ -46,7 +46,7 @@ function LoginForm() {
         //         "Content-Type": "application/json",
         //     },
         // }
-        axios.post("http://192.168.100.19:3000/api/admin/adminlogin", credentials,
+        axios.post(`${process.env.REACT_APP_API}/api/admin/adminlogin`, credentials,
         ).then(async (res) => {
             let response = res?.data?.data
             console.log(response, "response")
