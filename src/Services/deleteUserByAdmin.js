@@ -1,21 +1,14 @@
 import axios from 'axios';
-import { decryption } from './encryptionDecryption';
-import { AdminHeader } from './header';
-
 async function deleteUserByAdmin(_id) {
   try {
-    const response = await axios.delete(`${process.env.REACT_APP_API}/api/admin/user-delete/${_id}`
-      ,   {
-        headers: AdminHeader,
-      }
-    );
-    const encryptedData = response.data.data;
-    const decryptedData = await decryption(encryptedData);
-    // console.log(decryptedData,"asd")
-    return decryptedData;
+    const response = await axios.delete(`${process.env.REACT_APP_API}/api/admin/delete/${_id}`);
+    console.log(response, "ok");
+    const userData = response?.data;
+    console.log(userData, 'Del');
+    return userData;
   } catch (error) {
     console.error('Error fetching data at Delete Users Api:', error);
-    return [];
+    return error;
   }
 }
 

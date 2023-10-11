@@ -1,21 +1,14 @@
 import axios from 'axios';
-import { decryption } from './encryptionDecryption';
-import { AdminHeader } from './header';
 
-async function ViewUserDetails(UserID) {
+async function ViewUserDetails(_id) {
   try {
-    const response = await axios.get(`${process.env.REACT_APP_API}/api/admin/get-user/${UserID}`
-    ,{
-      headers: AdminHeader,
-    }
-  );
-    const encryptedData = response.data.data;
-    const decryptedData = await decryption(encryptedData);
-    console.log(decryptedData)
-    return decryptedData;
+    const response = await axios.get(`${process.env.REACT_APP_API}/api/admin/getSingleUser/${_id}`);
+
+    const userData = response.data;
+    console.log(userData, 'View Data');
+    return userData;
   } catch (error) {
-    console.error('Error fetching data UserID:', error);
-    return [];
+    return error;
   }
 }
 
